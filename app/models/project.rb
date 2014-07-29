@@ -7,4 +7,8 @@ class Project < ActiveRecord::Base # Table has the name of the class in plural
 		end
 		project
 	end
+
+	def self.last_created_projects(number)
+		Project.limit(number).order(created_at: :desc)
+	end
 end

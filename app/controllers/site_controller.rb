@@ -6,4 +6,5 @@ class SiteController < ApplicationController
 	def contact
 		'contact'
 	end
+
 end
