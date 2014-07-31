@@ -8,3 +8,5 @@
 Project.create name: 'Ironhack', description: 'Ironhack is all'
 Project.create name: 'Ironhack 2'
 Project.create description: 'Ironhack description'
+Project.entries.create hours: 2, minutes: 30
+ 

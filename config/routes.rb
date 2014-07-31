@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   get '/' => 'site#home' #HTTP verb + URL + controller#view
   get '/contact' => 'site#contact'
   get '/projects' => 'proyects#index'
+  get '/projects/:id' => 'proyects#show'
+  get '/projects/:project_id/entries' => 'entries#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
