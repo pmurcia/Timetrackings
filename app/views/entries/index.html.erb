@@ -7,8 +7,9 @@
 		<li><%= e.date %></li>
 		</ul>
 	</li>
-	<%= link_to('Delete', project_entry_path(@project, e), :method => :delete, :confirm =>'Are you sure you want to delete?') %>
+	<%= link_to('Delete', project_entry_path(@project, e), :method => :delete, :confirm =>'Are you sure?') %>
+	<%= link_to('Edit', edit_project_entry_path(@project, e.id)) %>
 <% end %>
 </ul>
 
-<button type="submit" action="/projects/:project_id/entries/new">Create Entry</button>
+<%= button_to('Create New Entry', new_project_entry_path(@project.id, 'entries'), :method => :get) %>

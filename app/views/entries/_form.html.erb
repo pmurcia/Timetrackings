@@ -1,0 +1,22 @@
+<% if flash[:alert] %>
+	<%= flash[:alert] %>
+<% end %>
+<%= form_for [@project, @entry] do |f|%>
+	<%= f.label :hours %>
+	<%= f.text_field :hours%>
+	<br>
+	<%= f.label :minutes %>
+	<%= f.text_field :minutes %>
+	<br>
+	<%= f.label :date %>
+	<%= f.date_field :date %>
+	<br>
+<%= f.submit 'Submit'%>
+<% if @entry.errors.any? %>
+	<ul>
+	  <% @errors.each do |error_msg| %>
+	    <li><%= error_msg %></li>
+	  <% end %>
+	</ul>
+<% end %>
+<% end %>

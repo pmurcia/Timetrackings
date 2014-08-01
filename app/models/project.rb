@@ -18,7 +18,7 @@ class Project < ActiveRecord::Base # Table has the name of the class in plural
 
 	def self.total_hours_in_month(month, year)
 		hours=[]
-		entries.where(year-month-01) 
+		entries.where(year-month-0) 
 		entries.each do |a|
 			hours = hours + a.hours + a.minutes/60.0
 		end

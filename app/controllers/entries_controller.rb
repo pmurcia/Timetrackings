@@ -16,6 +16,9 @@ class EntriesController < ApplicationController
 		if @entry.save
 			redirect_to action: 'index', controller: 'entries', project_id: @project.id
 		else
+
+			flash[:alert] = "Something hasn't been OK..."
+			@errors = @entry.errors.full_messages
 			render 'new'
 		end
 	end
@@ -28,14 +31,17 @@ class EntriesController < ApplicationController
 	def edit
 		@project = Project.find params[:project_id]
 		@entry = @project.entries.find params[:id]
+		Rails.logger.info "RENDERING NEW WITH FLASH VALUE #{flash[:alert]}"
 	end
 
 	def update
 		@project = Project.find params[:project_id]
 		@entry = @project.entries.find params[:id] 
 		if @entry.update_attributes entry_params
-			redirect_to action: 'show', controller: 'entries', project_id: @project.id
+			redirect_to action: 'index', controller: 'entries', project_id: @project.id
 		else
+			flash[:alert] = "Something hasn't been OK..."
+			
 			@errors = @entry.errors.full_messages
 			render 'edit'
 		end
