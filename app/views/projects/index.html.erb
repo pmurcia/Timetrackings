@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+	body {
+		background-color: white;
+	}
+
+	h3{
+		color: blue;
+	}
+
+	li {
+		background-color: green;
+		color: white;
+		margin-top: 50px;
+	}
+	</style>
+</head>
+<body>
+<h3>List</h3>
+<ul><% @projects.each do |project|%>
+	<li>
+		<%= link_to(project.name, project_entries_path(project)) %>
+		<% if project.description != nil %>
+			<%= ' - ' + project.description %>
+			<% end %>
+		<% end %>
+	</li>
+</ul>
+</body>
+</html>
+

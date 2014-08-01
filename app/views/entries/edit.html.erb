@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Edit entry</title>
+	<style>
+	li {
+		color: red;
+		font-weight: bold;
+	}
+	</style>
+</head>
+<body>
+
+
+<%= form_for [@project, @entry] do |f|%>
+	<%= f.label :hours %>
+	<%= f.text_field :hours%>
+	<br>
+	<%= f.label :minutes %>
+	<%= f.text_field :minutes %>
+	<br>
+	<%= f.label :date %>
+	<%= f.date_field :date %>
+	<br>
+
+	<%= f.submit 'Edit'%>
+<% end %>
+<% if @entry.errors.any? %>
+	<ul>
+	  <% @entry.errors.full_messages.each do |error_msg| %>
+	    <li><%= error_msg %></li>
+	  <% end %>
+	</ul>
+<% end %>
+</body>
+</html>

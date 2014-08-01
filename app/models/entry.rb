@@ -1,4 +1,4 @@
 class Entry < ActiveRecord::Base
 	belongs_to :proyect
-	validate :hours, :minutes, numericality: {message: "How could this not be a number??!!"}
+	validates :hours, :minutes, numericality: {only_integer: true, message: "How could this not be a number??!!"}
 end

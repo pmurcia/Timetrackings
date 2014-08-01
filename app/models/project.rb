@@ -20,13 +20,14 @@ class Project < ActiveRecord::Base # Table has the name of the class in plural
 		hours=[]
 		entries.where(year-month-01) 
 		entries.each do |a|
-			hours = hours + a.hours + a.minutes/60
+			hours = hours + a.hours + a.minutes/60.0
 		end
 		end
 		# beggining date = Date.new(y, m, 1)
 		# enddate = beggining date.end of month
 		# entries in month = entries where(date:[begdate..enddate] )
 		# entries in month inject(0) do |
+		# PDF copiar...
 
 	
 
